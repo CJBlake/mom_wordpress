@@ -53,6 +53,11 @@ RUN set -ex; \
 	tar -xzf wordpress.tar.gz -C /usr/src/; \
 	rm wordpress.tar.gz; \
 	chown -R www-data:www-data /usr/src/wordpress
+	
+RUN apt-get update \
+	&& apt-get install -y zlib1g-dev \
+	&& docker-php-ext-install zip \
+	&& /etc/init.d/apache2 reload
 
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN chmod 770 "/usr/local/bin/docker-entrypoint.sh"
