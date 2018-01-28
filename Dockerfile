@@ -9,6 +9,7 @@ RUN set -ex; \
 	apt-get install -y --no-install-recommends \
 		libjpeg-dev \
 		libpng-dev \
+		zlib1g-dev \
 	; \
 	\
 	docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr; \
@@ -53,10 +54,6 @@ RUN set -ex; \
 	tar -xzf wordpress.tar.gz -C /usr/src/; \
 	rm wordpress.tar.gz; \
 	chown -R www-data:www-data /usr/src/wordpress
-	
-RUN apt-get update \
-	&& apt-get install -y zlib1g-dev \
-	rm -rf /var/lib/apt/lists/*
 	
 RUN /bin/bash -c docker-php-ext-install zip
 
