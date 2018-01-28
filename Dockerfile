@@ -57,7 +57,6 @@ RUN set -ex; \
 RUN apt-get update \
 	&& apt-get install -y zlib1g-dev \
 	&& docker-php-ext-install zip \
-	&& /etc/init.d/apache2 reload \
 	rm -rf /var/lib/apt/lists/*
 
 
