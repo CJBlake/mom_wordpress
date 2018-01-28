@@ -54,7 +54,7 @@ RUN set -ex; \
 	rm wordpress.tar.gz; \
 	chown -R www-data:www-data /usr/src/wordpress
 	
-RUN apt-get update \
+RUN /bin/bash -c apt-get update \
 	&& apt-get install -y zlib1g-dev \
 	&& docker-php-ext-install zip \
 	rm -rf /var/lib/apt/lists/*
