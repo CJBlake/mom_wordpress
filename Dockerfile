@@ -10,6 +10,7 @@ RUN set -ex; \
 		libjpeg-dev \
 		libpng-dev \
 		zlib1g-dev \
+		libapache2-mod-rpaf \
 	; \
 	\
 	docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr; \
