@@ -1,0 +1,7 @@
+edit /etc/apache2/mods-available/rpaf.conf
+
+<IfModule mod_rpaf.c>
+RPAFenable On
+RPAFsethostname On
+RPAFproxy_ips 127.0.0.1 # replacing 127.0.0.1 with ip of proxy server eg. 172.17.0.20
+</IfModule>
